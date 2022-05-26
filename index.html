@@ -14,7 +14,7 @@
             <h1>Add a Task</h1>
             <div class="add-task-container">
                 <div class="task-title">
-                    <label for="title">Select importance:</label>
+                    <label for="title">Task Title:</label>
                     <input type="text">
                 </div>
                 <div class="task-points">
@@ -37,15 +37,31 @@
 
         <div class="tasks">
             <h1>Tasks</h1>
+
             <div class="search-box">
                 <label for="title">Search for a Task</label>
                 <input type="text">
             </div>
-            <div class="sort-box">
- 
-            </div>
-            <div class="task-container">
 
+            <div class="sort-box">
+                <label for="points">Select importance:</label>
+                <select name="cars" id="cars">
+                    <option value="sort-points">Sort by importance</option>
+                    <option value="sort-date">Sort by date</option>
+                </select>        
+            </div>
+
+            <div class="task-container">
+                <div class="dummy-task">
+                    <div class="top">
+                        <h2>This is the title</h2>
+                        <h2>Date Created: 25/5/2022</h2>
+                        <h2>Importance: 3</h2>
+                    </div>
+                    <div class="bottom">
+                        <p>This the task description</p>
+                    </div>
+                </div>
             </div>
         </div>
 
