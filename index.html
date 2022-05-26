@@ -9,12 +9,46 @@
 </head>
 <body>
     <div class="main-container">
+        
         <div class="add-tasks">
-            
+            <h1>Add a Task</h1>
+            <div class="add-task-container">
+                <div class="task-title">
+                    <label for="title">Select importance:</label>
+                    <input type="text">
+                </div>
+                <div class="task-points">
+                    <label for="points">Select importance:</label>
+                    <select name="cars" id="cars">
+                        <option value="1">1 - Least important</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 - Most important</option>
+                    </select>
+                </div>
+                <div class="task-description">
+                    <label>Review of W3Schools:</label>
+                    <textarea></textarea>
+                </div>
+                <button>Add Task</button>
+            </div>
         </div>
-        <div class="tasks">
 
+        <div class="tasks">
+            <h1>Tasks</h1>
+            <div class="search-box">
+                <label for="title">Search for a Task</label>
+                <input type="text">
+            </div>
+            <div class="sort-box">
+ 
+            </div>
+            <div class="task-container">
+
+            </div>
         </div>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
