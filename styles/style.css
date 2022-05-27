@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(179, 218, 188);
+    background-color: rgb(180, 210, 190);
 }
 
 .main-container {
@@ -18,15 +18,33 @@ body {
 }
 
 .add-tasks {
-    border: solid 8px rgb(118, 162, 173);
-    border-radius: 15px;
+    background-color: rgb(176, 203, 203);
+    border-radius: 30px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    width: 90%;
 }
 
 .add-task-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.task-title {
+    width: auto;
+}
+
+.task-points {
+    width: auto;
+}
+
+.task-description {
     width: 100%;
 }
 
@@ -45,7 +63,7 @@ body {
 
 .top {
     display: flex;
-    background-color: rgb(6, 46, 46);
+    background-color: rgb(9, 61, 61);
     color: white;
     padding: 15px;
     justify-content: space-between;
@@ -63,3 +81,68 @@ body {
 .bottom > p {
     font-size: 20px;
 }
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkgreen;
+    text-align: center;
+    margin: 0 auto;
+}
+
+input {
+    border: solid 2px rgb(9, 61, 61);
+    border-radius: 20px;
+    background-color: rgb(176, 203, 203);
+    height: 30px;
+    font-size: 18px;
+    padding: 20px;
+    width: 400px;
+    margin: 5px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 3px solid #1877f2;
+    outline: none;
+}
+
+button {
+    border-radius: 20px;
+    background-color: rgb(9, 61, 61);
+    font-size: 18px;
+    padding: 10px;
+    color: white;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(176, 203, 203);
+    color: rgb(9, 61, 61);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+select {
+    border: solid 2px;
+    border-radius: 20px;
+    background-color: rgb(176, 203, 203);
+    height: 30px;
+    font-size: 18px;
+    padding: 20px;
+    width: 400px;
+    margin: 5px;
+}
+
+textarea {
+    border: solid 2px rgb(9, 61, 61);
+    border-radius: 20px;
+    background-color: rgb(176, 203, 203);
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin: 5px;
+}
+
+
