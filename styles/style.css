@@ -157,9 +157,12 @@ textarea {
 }
 
 .actions {
-    font-size: 20px;
-    color: white;
     display: flex;
     gap: 20px;
 }
 
+i {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
