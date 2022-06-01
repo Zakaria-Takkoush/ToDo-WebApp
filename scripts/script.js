@@ -54,7 +54,7 @@ $( "#add" ).click(function() {
 
         appendTask (task_object.title,task_object.pts,task_object.date,task_object.desc)
 
-        console.log(task_object);
+        // console.log(task_object);
         tasks.push(task_object);
         console.log(tasks);
         localStorage.setItem("tasks", tasks)
@@ -75,12 +75,11 @@ var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     })
 })
 
-document.onload = function() {
-    let reload_tasks = localStorage.getItem(tasks)
+window.onload = function() {
+    let reload_tasks = localStorage.getItem("tasks")
     console.log(reload_tasks)
+    console.log(reload_tasks[0])
     // for (let i =0; i< reload_tasks.length; i++) {
     //     $(".task-container").append(reload_tasks);
     //   }
 }
-
- // $( this ).slideUp();
