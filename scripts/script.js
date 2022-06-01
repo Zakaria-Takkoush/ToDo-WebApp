@@ -1,60 +1,71 @@
-window.onload = function () {
-    
+
+let task_title = $("#input_title").val();
+let task_pts = $('#pts').val();
+let task_desc = $("#desc").val();
+
+function appendTask (title,pts,date,desc) {
+    let task = `
+    <div class="dummy-task">
+    <div class="top">
+    <h2>` + title + `</h2>
+    <h2>Date Created: ${date}>
+    <h2>Importance: ` + pts + `</h2>
+    <div class="actions">
+    <i class="fa-solid fa-check"></i>
+    <i class="fa-solid fa-pen-to-square"></i>
+    <i class="fa-solid fa-trash"></i>
+    </div>
+    </div>
+    <div class="bottom">
+    <p>` + desc + `</p>
+    </div>
+    `
+    $(".task-container").append(task);
+}
+
 // let task = $("<div>", {id: "", "class": "dummy-task"});
 // let top = $("<div>", {id: "", "class": "top"});
 // let bottom = $("<div>", {id: "", "class": "bottom"});
 
-let task_title = $("#input_title").val()
+// let task_date = new Date
+// let actions = '<div class="actions">' + '<i class="fa-solid fa-check"></i>' + '<i class="fa-solid fa-pen-to-square"></i>' + '<i class="fa-solid fa-trash"></i>' + '</div>'
+// let top_content = $("<h2>" + task_title + "</h2> <h2>Date Created: " + "</h2> <h2>Importance: " + task_pts + "</h2>" + actions)
+// let bottom_content = $(task_desc)
 
-let task_pts = $('#pts').find(":selected").text();
-
-var task_desc = $("#desc").val();
-//var $task_date = 
-
-var actions = '<div class="actions">' + '<i class="fa-solid fa-check"></i>' + '<i class="fa-solid fa-pen-to-square"></i>' + '<i class="fa-solid fa-trash"></i>' + '</div>'
-$top_content = $("<h2>" + task_title + "</h2> <h2>Date Created: " + "</h2> <h2>Importance: " + task_pts + "</h2>" + actions)
-$bottom_content = $(task_desc)
-
-
-// task object
-let task_object = {
-    title: document.getElementById("input_title").value,
-    pts: $('#pts').val(),
-    desc: $("#desc").val()
-}
-
-
-
- // $( this ).slideUp();
-
-
-
-// task = `
-// <div class="dummy-task">
-// <div class="top">
-// <h2>` + $("#input_title").val() + `</h2>
-// <h2>Date Created: 25/5/2022</h2>
-// <h2>Importance: ` + $('#pts').val() + `</h2>
-// <div class="actions">
-// <i class="fa-solid fa-check"></i>
-// <i class="fa-solid fa-pen-to-square"></i>
-// <i class="fa-solid fa-trash"></i>
-// </div>
-// </div>
-// <div class="bottom">
-// <p>` + task_desc + `</p>
-// </div>
-// `
+let tasks = [];
 
 $( "#add" ).click(function() {
-    // $(".task-container").append(task);
     // task.append($top)
     // task.append($bottom)
     // top.append($top_content)
     // bottom.append($bottom_content)
+    
+    let task_title = $("#input_title").val();
+    let task_pts = $('#pts').val();
+    let task_desc = $("#desc").val();
+
+    // task object
+    let task_object = {
+        title: $("#input_title").val(),
+        pts: $('#pts').val(),
+        date: new Date($.now()),
+        desc: $("#desc").val(),
+        is_done: false
+    }
+
+    appendTask (task_object.title,task_object.pts,task_object.date,task_object.desc)
+
     console.log(task_object);
+    tasks.push(task_object);
+    console.log(tasks);
+    localStorage.setItem("tasks", tasks)
+    // alert(new Date($.now()));
   });
 
+
+  for (let i =0; i< tasks.length; i++) {
+    $(".task-container").append(task);
+  }
 
 var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     var p = $(this).parent() 
@@ -63,5 +74,6 @@ var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     })
 })
 
-}
 
+
+ // $( this ).slideUp();
