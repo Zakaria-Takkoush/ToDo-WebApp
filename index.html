@@ -17,23 +17,23 @@
             <div class="add-task-container">
                 <div class="task-title">
                     <p>Task Title:</p>
-                    <input type="text">
+                    <input type="text" id="input_title">
                 </div>
                 <div class="task-points">
                     <p>Importance:</p>
-                    <select>
-                        <option value="1">1 - Least important</option>
+                    <select id="pts">
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5 - Most important</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="task-description">
-                    <p>Description::</p>
-                    <textarea></textarea>
+                    <p>Description:</p>
+                    <textarea id="desc"></textarea>
                 </div>
-                <button>Add Task</button>
+                <button id="add">Add Task</button>
             </div>
         </div>
 
