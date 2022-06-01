@@ -1,7 +1,4 @@
 
-let task_title = $("#input_title").val();
-let task_pts = $('#pts').val();
-let task_desc = $("#desc").val();
 
 function appendTask (title,pts,date,desc) {
     let task = `
@@ -23,6 +20,12 @@ function appendTask (title,pts,date,desc) {
     $(".task-container").append(task);
 }
 
+function clearInputs() {
+    $("#input_title").val("")
+    $('#pts').val("")
+    $("#desc").val("")
+}
+
 // let task = $("<div>", {id: "", "class": "dummy-task"});
 // let top = $("<div>", {id: "", "class": "top"});
 // let bottom = $("<div>", {id: "", "class": "bottom"});
@@ -35,37 +38,34 @@ function appendTask (title,pts,date,desc) {
 let tasks = [];
 
 $( "#add" ).click(function() {
-    // task.append($top)
-    // task.append($bottom)
-    // top.append($top_content)
-    // bottom.append($bottom_content)
-    
     let task_title = $("#input_title").val();
     let task_pts = $('#pts').val();
     let task_desc = $("#desc").val();
 
-    // task object
-    let task_object = {
-        title: $("#input_title").val(),
-        pts: $('#pts').val(),
-        date: new Date($.now()),
-        desc: $("#desc").val(),
-        is_done: false
-    }
+    if (task_title !== "" && task_pts !== "" && task_desc !== "") {
+        // task object
+        let task_object = {
+            title: $("#input_title").val(),
+            pts: $('#pts').val(),
+            date: new Date($.now()),
+            desc: $("#desc").val(),
+            is_done: false
+        }
 
-    appendTask (task_object.title,task_object.pts,task_object.date,task_object.desc)
+        appendTask (task_object.title,task_object.pts,task_object.date,task_object.desc)
 
-    console.log(task_object);
-    tasks.push(task_object);
-    console.log(tasks);
-    localStorage.setItem("tasks", tasks)
-    // alert(new Date($.now()));
+        console.log(task_object);
+        tasks.push(task_object);
+        console.log(tasks);
+        localStorage.setItem("tasks", tasks)
+        // alert(new Date($.now()));
+
+        clearInputs()
+    } else {
+        alert("Please fill in all required fields!")
+ }
   });
 
-
-  for (let i =0; i< tasks.length; i++) {
-    $(".task-container").append(task);
-  }
 
 var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     var p = $(this).parent() 
@@ -74,6 +74,12 @@ var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     })
 })
 
-
+document.onload = function() {
+    let reload_tasks = localStorage.getItem(tasks)
+    console.log(reload_tasks)
+    // for (let i =0; i< reload_tasks.length; i++) {
+    //     $(".task-container").append(reload_tasks);
+    //   }
+}
 
  // $( this ).slideUp();
