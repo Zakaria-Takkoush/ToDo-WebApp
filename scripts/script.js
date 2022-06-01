@@ -61,6 +61,7 @@ $( "#add" ).click(function() {
         // alert(new Date($.now()));
 
         clearInputs()
+        window.scrollTo(0, document.body.scrollHeight);
     } else {
         alert("Please fill in all required fields!")
  }
