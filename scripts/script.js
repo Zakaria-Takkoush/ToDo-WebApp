@@ -108,6 +108,8 @@ displayTasks()
 //     })
 // }
 
+// Sorting Tasks
+
 function sortbyPts() {
     $(".task-container").text("");
     tasks.sort((firstItem, secondItem) => firstItem.pts - secondItem.pts);
@@ -131,3 +133,15 @@ $( "#sort_btn" ).click(function() {
         sortbyPts()
     } 
 })
+
+// Clear Tasks
+
+$( "#clear_btn" ).click(function() {
+    localStorage.clear()
+    location.reload();
+})
+
+// Searching for a task
+
+// function searchTask() {
+// }
