@@ -5,7 +5,7 @@ function appendTask (title,pts,date,desc) {
     <div class="dummy-task">
     <div class="top">
     <h2>` + title + `</h2>
-    <h2>Date Created: ${date}>
+    <h2>Created: ${date}
     <h2>Importance: ` + pts + `</h2>
     <div class="actions">
     <i id="check" class="fa-solid fa-check"></i>
@@ -50,12 +50,16 @@ $( "#add" ).click(function() {
     let task_pts = $('#pts').val();
     let task_desc = $("#desc").val();
 
+    // Format date
+    let d = new Date();
+    let time = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+
     if (task_title !== "" && task_pts !== "" && task_desc !== "") {
         // task object
         let task_object = {
             title: $("#input_title").val(),
             pts: $('#pts').val(),
-            date: new Date($.now()),
+            date: time,
             desc: $("#desc").val(),
             is_done: false
         }
