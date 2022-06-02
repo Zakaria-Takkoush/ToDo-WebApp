@@ -35,7 +35,12 @@ function clearInputs() {
 // let top_content = $("<h2>" + task_title + "</h2> <h2>Date Created: " + "</h2> <h2>Importance: " + task_pts + "</h2>" + actions)
 // let bottom_content = $(task_desc)
 
-let tasks = [];
+let tasks;
+if (localStorage.tasks != null) {
+    tasks = JSON.parse(localStorage.tasks);
+} else {
+    tasks = [];
+}
 
 $( "#add" ).click(function() {
     let task_title = $("#input_title").val();
@@ -56,9 +61,8 @@ $( "#add" ).click(function() {
 
         // console.log(task_object);
         tasks.push(task_object);
-        console.log(tasks);
-        localStorage.setItem("tasks", tasks)
-        // alert(new Date($.now()));
+        // console.log(tasks);
+        localStorage.setItem("tasks", JSON.stringify(tasks))
 
         clearInputs()
         window.scrollTo(0, document.body.scrollHeight);
@@ -75,11 +79,13 @@ var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
     })
 })
 
-window.onload = function() {
-    let reload_tasks = localStorage.getItem("tasks")
-    console.log(reload_tasks)
-    console.log(reload_tasks[0])
-    // for (let i =0; i< reload_tasks.length; i++) {
-    //     $(".task-container").append(reload_tasks);
-    //   }
-}
+// window.onload = function() {
+//     let reload_tasks = localStorage.getItem("tasks")
+//     console.log(reload_tasks)
+//     console.log(reload_tasks[0])
+//     for (let i =0; i< reload_tasks.length; i++) {
+//         $(".task-container").append(reload_tasks);
+//       }
+// }
+
+
