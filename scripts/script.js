@@ -8,9 +8,9 @@ function appendTask (title,pts,date,desc) {
     <h2>Created: ${date}
     <h2>Importance: ` + pts + `</h2>
     <div class="actions">
-    <i id="check" class="fa-solid fa-check"></i>
-    <i id="edit" class="fa-solid fa-pen-to-square"></i>
-    <i id="delete" class="fa-solid fa-trash"></i>
+    <i id="check" class="fa-solid fa-check" onclick="doneTask(${i})"></i>
+    <i id="edit" class="fa-solid fa-pen-to-square" onclick="editTask(${i})"></i>
+    <i id="delete" class="fa-solid fa-trash" onclick="deleteTask(${i})"></i>
     </div>
     </div>
     <div class="bottom">
@@ -91,26 +91,13 @@ $( "#add" ).click(function() {
 
 displayTasks()
 
-// Delete task
-// var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
-//     var p = $(this).parent() 
-//     p.fadeout(function(){
-//         p.remove()
-//     })
-// })
 
-// function deleteTask(index) {
-//     tasks.splice(index, 1)
-//     displayTasks()
-// }
-
-// for (i=0; i<tasks.length ; i++ ) {
-//     $('# delete').click(function(){
-//         tasks.splice(i, 1);
-//         // localStorage.tasks = JSON.stringify(tasks);
-//         // location.reload();
-//     })
-// }
+function deleteTask(id) {
+   // displayTasks();
+    tasks.splice(id, 1);
+    localStorage.tasks = JSON.stringify(tasks);
+    location.reload();
+}
 
 // Sorting Tasks
 
