@@ -79,24 +79,23 @@ $( "#add" ).click(function() {
   });
 
 
-// window.onload = function() {
-//     let reload_tasks = localStorage.getItem("tasks")
-//     console.log(reload_tasks)
-//     console.log(reload_tasks[0])
-//     for (let i =0; i< reload_tasks.length; i++) {
-//         $(".task-container").append(reload_tasks);
-//       }
-// }
-
-
 displayTasks()
 
+// Delete Task
 
 function deleteTask(id) {
-   // displayTasks();
     tasks.splice(id, 1);
     localStorage.tasks = JSON.stringify(tasks);
     location.reload();
+}
+
+// Done Task
+
+function doneTask(id) {
+    tasks[id].is_done = true
+    if (tasks[id].is_done == true ) {
+        $(".top").toggleClass("top-done")
+    }
 }
 
 // Sorting Tasks
