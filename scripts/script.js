@@ -8,9 +8,9 @@ function appendTask (title,pts,date,desc) {
     <h2>Date Created: ${date}>
     <h2>Importance: ` + pts + `</h2>
     <div class="actions">
-    <i class="fa-solid fa-check"></i>
-    <i class="fa-solid fa-pen-to-square"></i>
-    <i class="fa-solid fa-trash"></i>
+    <i id="check" class="fa-solid fa-check"></i>
+    <i id="edit" class="fa-solid fa-pen-to-square"></i>
+    <i id="delete" class="fa-solid fa-trash"></i>
     </div>
     </div>
     <div class="bottom">
@@ -36,12 +36,15 @@ if (localStorage.tasks != null) {
 
 
 //load tasks on load
-for (i=0; i<tasks.length ; i++ ) {
-    console.log(tasks[i]);
-    appendTask (tasks[i].title,tasks[i].pts,tasks[i].date,tasks[i].desc)
+function displayTasks() {
+    for (i=0; i<tasks.length ; i++ ) {
+        console.log(tasks[i]);
+        appendTask (tasks[i].title,tasks[i].pts,tasks[i].date,tasks[i].desc)
+    }
 }
 
 
+// Add a task
 $( "#add" ).click(function() {
     let task_title = $("#input_title").val();
     let task_pts = $('#pts').val();
@@ -71,13 +74,6 @@ $( "#add" ).click(function() {
  }
   });
 
-// Delete task
-// var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
-//     var p = $(this).parent() 
-//     p.fadeout(function(){
-//         p.remove()
-//     })
-// })
 
 // window.onload = function() {
 //     let reload_tasks = localStorage.getItem("tasks")
@@ -89,3 +85,41 @@ $( "#add" ).click(function() {
 // }
 
 
+displayTasks()
+
+// Delete task
+// var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
+//     var p = $(this).parent() 
+//     p.fadeout(function(){
+//         p.remove()
+//     })
+// })
+
+// function deleteTask(index) {
+//     tasks.splice(index, 1)
+//     displayTasks()
+// }
+
+// for (i=0; i<tasks.length ; i++ ) {
+//     $('# delete').click(function(){
+//         tasks.splice(i, 1);
+//         // localStorage.tasks = JSON.stringify(tasks);
+//         // location.reload();
+//     })
+// }
+
+function sortbyPts() {
+    $(".task-container").text("");
+    tasks.sort((firstItem, secondItem) => firstItem.pts - secondItem.pts);
+    console.log(tasks);
+    displayTasks()
+}
+
+function sortbyDate() {
+    $(".task-container").text("");
+    tasks.sort((firstItem, secondItem) => firstItem.date - secondItem.date);
+    console.log(tasks);
+    displayTasks()
+}
+
+sortbyPts()
