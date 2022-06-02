@@ -153,3 +153,19 @@ $("#search_btn").click(function() {
     searchTask(search_txt);
     $("#search_txt").val("")
 })
+
+// Done Task
+
+// function doneTask (index) {
+//     tasks[index].is_done = true
+// }
+
+// $(".top").each(function() {
+//     if (tasks[index].is_done === true) {
+//         $(this).css("background", "greeb")
+//     }
+// })
+
+
+
+        

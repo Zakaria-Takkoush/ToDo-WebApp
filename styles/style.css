@@ -74,6 +74,7 @@ font-size: 16px;
     justify-content: space-between;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    gap: 30px;
 }
 
 .bottom {
@@ -171,3 +172,39 @@ i {
     color: white;
     cursor: pointer;
 }
+
+.top-done {
+    display: flex;
+    background-color: rgb(97, 216, 99);
+    color: white;
+    padding: 15px;
+    justify-content: space-between;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* .bottom-done {
+    padding: 15px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: rgb(176, 203, 203);
+} */
+
+@media only screen and (max-width: 600px) {
+    .add-task-container {
+        flex-direction: column;
+    }
+    .add-task-container > div {
+        width: 100%;
+    }
+    input {
+        width: 100%;
+    }
+    .task-actions {
+        flex-direction: column;
+    }
+    .top {
+        flex-direction: column;
+        gap: 10px;
+    }
+  }
