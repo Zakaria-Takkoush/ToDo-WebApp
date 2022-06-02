@@ -26,21 +26,21 @@ function clearInputs() {
     $("#desc").val("")
 }
 
-// let task = $("<div>", {id: "", "class": "dummy-task"});
-// let top = $("<div>", {id: "", "class": "top"});
-// let bottom = $("<div>", {id: "", "class": "bottom"});
-
-// let task_date = new Date
-// let actions = '<div class="actions">' + '<i class="fa-solid fa-check"></i>' + '<i class="fa-solid fa-pen-to-square"></i>' + '<i class="fa-solid fa-trash"></i>' + '</div>'
-// let top_content = $("<h2>" + task_title + "</h2> <h2>Date Created: " + "</h2> <h2>Importance: " + task_pts + "</h2>" + actions)
-// let bottom_content = $(task_desc)
-
+// check if the local storage is not empty, then pase its content
 let tasks;
 if (localStorage.tasks != null) {
     tasks = JSON.parse(localStorage.tasks);
-} else {
+} else {    // if empty, vreate an empty array
     tasks = [];
 }
+
+
+//load tasks on load
+for (i=0; i<tasks.length ; i++ ) {
+    console.log(tasks[i]);
+    appendTask (tasks[i].title,tasks[i].pts,tasks[i].date,tasks[i].desc)
+}
+
 
 $( "#add" ).click(function() {
     let task_title = $("#input_title").val();
@@ -71,13 +71,13 @@ $( "#add" ).click(function() {
  }
   });
 
-
-var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
-    var p = $(this).parent() 
-    p.fadeout(function(){
-        p.remove()
-    })
-})
+// Delete task
+// var delete_task = $('<i class="fa-solid fa-trash"></i>').click(function(){
+//     var p = $(this).parent() 
+//     p.fadeout(function(){
+//         p.remove()
+//     })
+// })
 
 // window.onload = function() {
 //     let reload_tasks = localStorage.getItem("tasks")
