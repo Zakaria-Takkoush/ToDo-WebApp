@@ -143,5 +143,13 @@ $( "#clear_btn" ).click(function() {
 
 // Searching for a task
 
-// function searchTask() {
-// }
+function searchTask(search) {
+    let found = tasks.find(a => a.title === search);
+    $(".task-container").text("");
+    appendTask (found.title,found.pts,found.date,found.desc)
+}
+$("#search_btn").click(function() {
+    let search_txt =  $("#search_txt").val()
+    searchTask(search_txt);
+    $("#search_txt").val("")
+})
