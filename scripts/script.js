@@ -111,15 +111,23 @@ displayTasks()
 function sortbyPts() {
     $(".task-container").text("");
     tasks.sort((firstItem, secondItem) => firstItem.pts - secondItem.pts);
-    console.log(tasks);
+    // console.log(tasks);
     displayTasks()
 }
 
 function sortbyDate() {
     $(".task-container").text("");
     tasks.sort((firstItem, secondItem) => firstItem.date - secondItem.date);
-    console.log(tasks);
+    location.reload();
+    // console.log(tasks);
     displayTasks()
 }
 
-sortbyPts()
+$( "#sort_btn" ).click(function() {
+    if (document.getElementById("sort").value === "sort-date") {
+        sortbyDate()
+    }
+    if (document.getElementById("sort").value === "sort-points") {
+        sortbyPts()
+    } 
+})
